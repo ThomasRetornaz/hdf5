@@ -445,7 +445,7 @@ option (BUILD_STATIC_LIBS "Build Static Libraries" ON)
 set (H5_ENABLE_STATIC_LIB NO)
 option (BUILD_SHARED_LIBS "Build Shared Libraries" ON)
 set (H5_ENABLE_SHARED_LIB NO)
-option (ONLY_SHARED_LIBS "Only Build Shared Libraries" OFF)
+option (ONLY_SHARED_LIBS "Only Build Shared Libraries" ON)
 mark_as_advanced (ONLY_SHARED_LIBS)
 
 if (BUILD_STATIC_LIBS)
@@ -837,8 +837,8 @@ endif ()
 #-----------------------------------------------------------------------------
 # Dashboard and Testing Settings
 #-----------------------------------------------------------------------------
-option (BUILD_TESTING "Build HDF5 Unit Testing" ON)
-if (BUILD_TESTING)
+option (HDF5_BUILD_TESTING "Build HDF5 Unit Testing" OFF)
+if (HDF5_BUILD_TESTING)
   set (DART_TESTING_TIMEOUT 1200
       CACHE STRING
       "Timeout in seconds for each test (default 1200=20minutes)"
@@ -912,7 +912,7 @@ endif ()
 # Option to build HDF5 Tools
 #-----------------------------------------------------------------------------
 if (EXISTS "${HDF5_SOURCE_DIR}/tools" AND IS_DIRECTORY "${HDF5_SOURCE_DIR}/tools")
-  option (HDF5_BUILD_TOOLS  "Build HDF5 Tools" ON)
+  option (HDF5_BUILD_TOOLS  "Build HDF5 Tools" OFF)
   if (HDF5_BUILD_TOOLS)
     add_subdirectory (tools)
   endif ()
@@ -922,7 +922,7 @@ endif ()
 # Option to build examples
 #-----------------------------------------------------------------------------
 if (EXISTS "${HDF5_SOURCE_DIR}/examples" AND IS_DIRECTORY "${HDF5_SOURCE_DIR}/examples")
-  option (HDF5_BUILD_EXAMPLES  "Build HDF5 Library Examples" ON)
+  option (HDF5_BUILD_EXAMPLES  "Build HDF5 Library Examples" OFF)
   if (HDF5_BUILD_EXAMPLES)
     add_subdirectory (examples)
   endif ()

@@ -17,6 +17,6 @@ endif ()
 # Add in the unit tests for the packet table c++ wrapper
 # --------------------------------------------------------------------
 
-if (BUILD_TESTING)
+if (HDF5_BUILD_TESTING)
   add_subdirectory (test)
 endif ()
